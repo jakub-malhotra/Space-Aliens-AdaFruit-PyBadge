@@ -1,0 +1,65 @@
+{
+    "name": "Mr Coxall - Codespace Container",
+    "postCreateCommand": "bash -i ./.devcontainer/startup.sh",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.vscode-pull-request-github",
+                "esbenp.prettier-vscode",
+                "hediet.vscode-drawio",
+                "oderwat.indent-rainbow",
+                "PKief.material-icon-theme",
+                "ms-python.python",
+                "ms-vscode.cpptools",
+                "sohamkamani.code-eol",
+                "Codeium.codeium",
+                "ritwickdey.LiveServer",
+                "ms-python.pylint"
+            ],
+            "settings": {
+                "editor.autoClosingQuotes": "always",
+                "editor.bracketPairColorization.enabled": true,
+                "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+                "editor.folding": false,
+                "editor.formatOnPaste": true,
+                "editor.guides.bracketPairs": true,
+                "editor.guides.indentation": true,
+                "editor.inlineSuggest.enabled": true,
+                "editor.insertSpaces": true,
+                "editor.lightbulb.enabled": "off",
+                "editor.lineNumbers": "on",
+                "editor.minimap.enabled": false,
+                "editor.mouseWheelZoom": true,
+                "editor.renderWhitespace": "all",
+                "editor.smoothScrolling": true,
+                "editor.stickyScroll.enabled": false,
+                "editor.tabSize": 4,
+                "explorer.confirmDragAndDrop": false,
+                "extensions.ignoreRecommendations": true,
+                "files.eol": "\n",
+                "git.autofetch": true,
+                "git.confirmSync": false,
+                "git.enableSmartCommit": true,
+                "githubPullRequests.defaultMergeMethod": "merge",
+                "html.autoClosingTags": true,
+                "html.format.extraLiners": "",
+                "htmlhint.enable": true,
+                "python.formatting.blackArgs": [
+                    "--line-length",
+                    "120"
+                ],
+                "python.linting.enabled": true,
+                "terminal.integrated.copyOnSelection": true,
+                "terminal.integrated.fontSize": 20,
+                "terminal.integrated.mouseWheelZoom": true,
+                "terminal.integrated.rightClickBehavior": "copyPaste",
+                "window.menuBarVisibility": "classic",
+                "workbench.colorTheme": "GitHub Dark Default",
+                "workbench.iconTheme": "material-icon-theme",
+                "workbench.startupEditor": "none",
+                "workbench.tips.enabled": false,
+                "workbench.welcomePage.walkthroughs.openOnInstall": false
+            }
+        }
+    }
+}
