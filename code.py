@@ -6,14 +6,47 @@ Created on: May 2024
 This program is the "Space Aliens" program on the PyBadge
 """
 
-import constants
-import stage
 import ugame
+import stage
+import random
+import time
+import constants
+
+def splash_scene():
+    # this function is the splash scene game loop
+
+    # get sound ready
+    coin_sound = open("coin.wav", 'rb')
+    sound = ugame.audio
+    sound.stop()
+    sound.mute(False)
+    sound.play(coin_sound)
+
+    # an image bank for CircuitPython
+    image_bank_mt_background = stage.Bank.from_bmp16("mt_game_studio.bmp")
+
+    # sets the background to image 0 in the image bank
+    background = stage.Grid(image_bank_mt_background, constants.SCREEN_X, constants.SCREEN_Y)
+
+    # create a stage for the background to show up on
+    # and set the frame rate to 60fps
+    game = stage.Stage(ugame.display, constants.FPS)
+
+    # set the layers, items show up in order
+    game.layers = [background]
+
+    # render the background and initial location of sprite list
+    game.render_block()
+
+    # repeat forever, game loop
+    while True:
+        # Wait for 1 seconds
+        time.sleep(1.0)
+        menu_scene()
+
 
 def menu_scene():
-    """
-    This function is the menu scene
-    """
+    # this function is the menu scene
 
     # image banks for CircuitPython
     image_bank_mt_background = stage.Bank.from_bmp16("mt_game_studio.bmp")
@@ -32,6 +65,37 @@ def menu_scene():
 
     # sets the background to image 0 in the image bank
     background = stage.Grid(image_bank_mt_background, constants.SCREEN_X, constants.SCREEN_Y)
+
+    # used this program to split the image into tile:
+    # https://ezgif.com/sprite-cutter/ezgif-5-818cdcbc3f66.png
+    # blank white
+    background.tile(2, 0, 0)
+    background.tile(3, 1, 0)
+    background.tile(4, 2, 0)
+    background.tile(5, 2, 0)
+    background.tile(6, 2, 0)
+    background.tile(7, 2, 0)
+    # blank white
+    background.tile(2, 3, 0)
+    background.tile(3, 3, 0)
+    background.tile(4, 3, 0)
+    background.tile(5, 3, 0)
+    background.tile(6, 3, 0)
+    background.tile(7, 3, 0)
+    # blank white
+    background.tile(2, 4, 0)
+    background.tile(3, 4, 0)
+    background.tile(4, 4, 0)
+    background.tile(5, 4, 0)
+    background.tile(6, 4, 0)
+    background.tile(7, 4, 0)
+    # blank white
+    background.tile(2, 5, 0)
+    background.tile(3, 5, 0)
+    background.tile(4, 5, 0)
+    background.tile(5, 5, 0)
+    background.tile(6, 5, 0)
+    background.tile(7, 5, 0)
 
     # create a stage for the background to show up on
     # and set the frame rate to 60fps
@@ -54,6 +118,7 @@ def menu_scene():
 
         # update game logic
         game.tick()  # wait until refresh rate finishes
+
 
 def game_scene():
     """
