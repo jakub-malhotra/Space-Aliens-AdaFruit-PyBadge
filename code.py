@@ -40,7 +40,7 @@ def splash_scene():
 
     # repeat forever, game loop
     while True:
-        # Wait for 1 seconds
+        # Wait for 1 second
         time.sleep(1.0)
         menu_scene()
 
@@ -65,37 +65,6 @@ def menu_scene():
 
     # sets the background to image 0 in the image bank
     background = stage.Grid(image_bank_mt_background, constants.SCREEN_X, constants.SCREEN_Y)
-
-    # used this program to split the image into tile:
-    # https://ezgif.com/sprite-cutter/ezgif-5-818cdcbc3f66.png
-    # blank white
-    background.tile(2, 0, 0)
-    background.tile(3, 1, 0)
-    background.tile(4, 2, 0)
-    background.tile(5, 2, 0)
-    background.tile(6, 2, 0)
-    background.tile(7, 2, 0)
-    # blank white
-    background.tile(2, 3, 0)
-    background.tile(3, 3, 0)
-    background.tile(4, 3, 0)
-    background.tile(5, 3, 0)
-    background.tile(6, 3, 0)
-    background.tile(7, 3, 0)
-    # blank white
-    background.tile(2, 4, 0)
-    background.tile(3, 4, 0)
-    background.tile(4, 4, 0)
-    background.tile(5, 4, 0)
-    background.tile(6, 4, 0)
-    background.tile(7, 4, 0)
-    # blank white
-    background.tile(2, 5, 0)
-    background.tile(3, 5, 0)
-    background.tile(4, 5, 0)
-    background.tile(5, 5, 0)
-    background.tile(6, 5, 0)
-    background.tile(7, 5, 0)
 
     # create a stage for the background to show up on
     # and set the frame rate to 60fps
@@ -141,14 +110,12 @@ def game_scene():
     sound.stop()
     sound.mute(False)
 
-# set the background to images
-# and the size (10x8 tiles of size 16x16)
-background = stage.Grid(image_bank_background, constants.SCREEN_X, constants.SCREEN_Y)
-
-for x_location in range(constants.SCREEN_GRID_X):
-    for y_location in range(constants.SCREEN_GRID_Y):
-        tile_picked = random.randint(1, 3)
-        background.tile(x_location, y_location, tile_picked)
+    # dynamically set the background to images and the size (10x8 tiles of size 16x16)
+    background = stage.Grid(image_bank_background, constants.SCREEN_X, constants.SCREEN_Y)
+    for x_location in range(constants.SCREEN_GRID_X):
+        for y_location in range(constants.SCREEN_GRID_Y):
+            tile_picked = random.randint(1, 3)
+            background.tile(x_location, y_location, tile_picked)
 
     # a sprite that will be updated every frame
     ship = stage.Sprite(
@@ -170,7 +137,6 @@ for x_location in range(constants.SCREEN_GRID_X):
     game.layers = [ship] + [alien] + [background]
 
     # render all sprites
-    # most likely you will only render the background once per game scene
     game.render_block()
 
     # repeat forever, game loop
@@ -214,4 +180,4 @@ for x_location in range(constants.SCREEN_GRID_X):
         game.tick()  # wait until refresh rate finishes
 
 if __name__ == "__main__":
-    menu_scene()
+    splash_scene()
