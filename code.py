@@ -66,6 +66,36 @@ def menu_scene():
     # sets the background to image 0 in the image bank
     background = stage.Grid(image_bank_mt_background, constants.SCREEN_X, constants.SCREEN_Y)
 
+    # used this program to split the image into tile: 
+    #   https://ezgif.com/sprite-cutter/ezgif-5-818cdbcc3f66.png
+    background.tile(2, 2, 0)  # blank white
+    background.tile(3, 2, 1)
+    background.tile(4, 2, 2)
+    background.tile(5, 2, 3)
+    background.tile(6, 2, 4)
+    background.tile(7, 2, 0)  # blank white
+
+    background.tile(2, 3, 0)  # blank white
+    background.tile(3, 3, 5)
+    background.tile(4, 3, 6)
+    background.tile(5, 3, 7)
+    background.tile(6, 3, 8)
+    background.tile(7, 3, 0)  # blank white
+
+    background.tile(2, 4, 0)  # blank white
+    background.tile(3, 4, 9)
+    background.tile(4, 4, 10)
+    background.tile(5, 4, 11)
+    background.tile(6, 4, 12)
+    background.tile(7, 4, 0)  # blank white
+
+    background.tile(2, 5, 0)  # blank white
+    background.tile(3, 5, 0)
+    background.tile(4, 5, 13)
+    background.tile(5, 5, 14)
+    background.tile(6, 5, 0)
+    background.tile(7, 5, 0)  # blank white
+
     # create a stage for the background to show up on
     # and set the frame rate to 60fps
     game = stage.Stage(ugame.display, constants.FPS)
